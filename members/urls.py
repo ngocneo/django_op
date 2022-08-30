@@ -1,7 +1,8 @@
 from django.urls import path
 from . import views
 from .views import (
-    TodoListApiView,
+    MembersApiView,
+    MembersDetailApiView,
 )
 
 
@@ -12,5 +13,6 @@ urlpatterns = [
   path('delete/<int:id>', views.delete, name='delete'),
   path('update/<int:id>', views.update, name='update'),
   path('update/updaterecord/<int:id>', views.updaterecord, name='updaterecord'),
-  path('api', TodoListApiView.as_view()),
+  path('api/', MembersApiView.as_view()),
+  path('api/<int:todo_id>/', MembersDetailApiView.as_view()),
 ]
